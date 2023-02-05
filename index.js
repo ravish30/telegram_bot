@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
 })
 
 app.post(URI, async (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
 
     const chatID = req.body.message.chat.id;
     const text = req.body.message.text;
