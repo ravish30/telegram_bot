@@ -13,8 +13,6 @@ const WEBHOOK_URL = SERVER_URL + URI;
 
 app.use(express.json());
 
-
-
 const init = async () => {
     const res = await axios.get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
     console.log(res.data)
@@ -31,12 +29,23 @@ app.post(URI, async (req, res) => {
     const chatID = req.body.message.chat.id;
     const text = req.body.message.text;
 
-    const reply = await axios.get('https://8768zwfurd.execute-api.us-east-1.amazonaws.com/v1/compliments')
+    const reply = await axios.get('https://8768zwfurd.execute-api.us-east-1.amazonaws.com/v1/compliments');
 
+
+    let msg = '';
+    if(text == 'praise') {
+        msg += reply.data;
+    }
+    else {
+        msg += 'type praise'
+    }
+
+
+    
 
     await axios.post(`${TELEGRAM_API}/sendMessage`, {
         chat_id: chatID,
-        text: reply.data
+        text: msg
     })
 
     return res.send();
