@@ -1,14 +1,17 @@
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const express = require("express");
 const axios = require("axios");
 const {data} = require("./data/Shaayri");
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 
 
-const { TOKEN, SERVER_URL, PORT } = process.env;
+// const { TOKEN, SERVER_URL, PORT } = process.env;
+const TOKEN = "6132363452:AAHGs26tR6JXuBdwVv9tJMWTwEJGWWFB5og";
+const SERVER_URL = "https://telegram-bot-brown.vercel.app";
+const PORT = 3000;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
 const URI = `/webhook/${TOKEN}`;
 const WEBHOOK_URL = SERVER_URL + URI;
