@@ -34,7 +34,10 @@ app.post(URI, async (req, res) => {
   const text = req.body.message.text;
 
   let msg = "";
-  if (text == "/tareef") {
+  if(text == "/start") {
+    msg += "Choose option from bottom left menu";
+  }
+  else if (text == "/tareef") {
     const reply = await axios.get(
       "https://8768zwfurd.execute-api.us-east-1.amazonaws.com/v1/compliments"
     );
