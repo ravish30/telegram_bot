@@ -2,8 +2,11 @@ const dotenv = require("dotenv");
 const express = require("express");
 const axios = require("axios");
 const {data} = require("./data/Shaayri");
-const app = express();
+
 dotenv.config();
+
+const app = express();
+
 
 const { TOKEN, SERVER_URL, PORT } = process.env;
 const TELEGRAM_API = `https://api.telegram.org/bot${TOKEN}`;
